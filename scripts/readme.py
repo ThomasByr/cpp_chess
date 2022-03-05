@@ -1,10 +1,16 @@
+#!/usr/bin/env python3
 """
 Make the README file <details> section.
 
     Usage:
-        `scripts/python ./readme.py`
+        `python 3.9 scripts/python ./readme.py`
 
 """
+
+import sys
+
+if (sys.version_info.major != 3) or (sys.version_info.minor < 9):
+    raise ValueError("Error [README make] : python version must be >=3.9")
 
 
 def get_changes() -> list[str]:
