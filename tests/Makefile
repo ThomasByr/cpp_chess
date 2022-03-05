@@ -2,7 +2,7 @@ CC = g++-11
 TARGET = tests
 
 CFLAGS ?= -march=native -Og -pipe -std=c++20 -pedantic -Wall -Wextra -Werror -DDEBUG -g
-LDLIBS ?= -lm # -pthread -ltps -lSDL2 -lSDL2_ttf
+LDLIBS ?=
 
 INCLUDE_PATH = ../includes
 
