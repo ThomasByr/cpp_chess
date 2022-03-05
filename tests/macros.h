@@ -17,7 +17,7 @@ are used to check the inequality of two values.
 *   only use `assert_info` when the evaluated expression does not expand to it's
 original form (for example, `assert_info(_a == _b, a == b)` if `a` and `b` are
 casted to the same type in `_a` and `_b`).
-*   `cast_to_same_type` macro is used to cast two values to the same type.
+*   `cast` macro is used to cast two values to the same type.
 As specified before, the type of the first argument is arbitrarily chosen.
 This macro thus creates two temporary variables, `_a` and `_b` that will be
 used to perform checks.
@@ -25,9 +25,6 @@ used to perform checks.
 */
 
 #pragma once
-
-#include <stdio.h>
-#include <stdlib.h>
 
 extern unsigned long _no_asserts;
 
@@ -46,38 +43,38 @@ extern unsigned long _no_asserts;
 #define assert(expr) assert_info(expr, expr);
 #endif
 
-#define cast_to_same_type(a, b) \
-    __typeof__(a) _a = (a);     \
+#define cast(a, b)          \
+    __typeof__(a) _a = (a); \
     __typeof__(a) _b = (b);
 
 #define assert_eq(a, b)                \
     do {                               \
-        cast_to_same_type(a, b);       \
+        cast(a, b);                    \
         assert_info(_a == _b, a == b); \
     } while (0);
 #define assert_neq(a, b)               \
     do {                               \
-        cast_to_same_type(a, b);       \
+        cast(a, b);                    \
         assert_info(_a != _b, a != b); \
     } while (0);
 #define assert_lt(a, b)              \
     do {                             \
-        cast_to_same_type(a, b);     \
+        cast(a, b);                  \
         assert_info(_a < _b, a < b); \
     } while (0);
 #define assert_gt(a, b)              \
     do {                             \
-        cast_to_same_type(a, b);     \
+        cast(a, b);                  \
         assert_info(_a > _b, a > b); \
     } while (0);
 #define assert_leq(a, b)               \
     do {                               \
-        cast_to_same_type(a, b);       \
+        cast(a, b);                    \
         assert_info(_a <= _b, a <= b); \
     } while (0);
 #define assert_geq(a, b)               \
     do {                               \
-        cast_to_same_type(a, b);       \
+        cast(a, b);                    \
         assert_info(_a >= _b, a >= b); \
     } while (0);
 
@@ -95,4 +92,5 @@ extern unsigned long _no_asserts;
             fprintf(stderr, "fake (0)\n");                         \
             fprintf(stderr, "\033[0m");                            \
         }                                                          \
+        fflush(stderr);                                            \
     } while (0);
