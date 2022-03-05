@@ -1,7 +1,7 @@
 CC = g++-11
 
-CFLAGS ?= -march=znver3 -Ofast -pipe -std=c++20 -pedantic -Wall -Wextra -Werror
-LDLIBS ?= -lm # -pthread -ltps -lSDL2 -lSDL2_ttf
+CFLAGS ?= -march=znver3 -pipe -std=c++20 -pedantic -Wall -Wextra -Werror
+LDLIBS ?=
 
 INCLUDE_PATH = ./includes
 
@@ -15,13 +15,32 @@ SOURCES  := $(wildcard $(SRCDIR)/*.cpp)
 INCLUDES := $(wildcard $(INCLUDE_PATH)/*.h)
 OBJECTS  := $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
-all : $(BINDIR)/$(TARGET)
+PATH_TO_EXE = $(BINDIR)/$(TARGET)
 
-debug: CFLAGS += -DDEBUG -g
-debug: clean $(BINDIR)/$(TARGET)
+all : release
+
+debug: CFLAGS += -Og -DDEBUG -g
+debug: clean $(PATH_TO_EXE)
 	@echo "\033[33mRunning in debug mode!\033[0m"
 
-$(BINDIR)/$(TARGET): $(OBJECTS)
+release: CFLAGS += -Ofast
+release: clean $(PATH_TO_EXE)
+	@echo "\033[36mRunning in release mode!\033[0m"
+
+run:
+ifneq ("$(wildcard $(PATH_TO_EXE))", "")
+	./$(PATH_TO_EXE)
+else
+	@echo "\033[31mNo executable found!\033[0m"
+endif
+
+run-release: release
+	./$(PATH_TO_EXE)
+
+run-debug: debug
+	valgrind --leak-check=full --show-leak-kinds=all --vgdb=full -s ./$(PATH_TO_EXE)
+
+$(PATH_TO_EXE): $(OBJECTS)
 	mkdir -p $(BINDIR)
 	$(CC) -o $@ $^ $(CFLAGS) $(LDLIBS)
 	@echo "\033[92mLinking complete!\033[0m"
@@ -36,4 +55,4 @@ clean:
 	rm -f $(OBJDIR)/*.o
 	rm -f $(OBJDIR)/*.gcda
 	rm -f $(OBJDIR)/*.gcno
-	rm -f $(BINDIR)/$(TARGET)
+	rm -f $(PATH_TO_EXE)
