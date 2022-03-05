@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "game-test.cpp"
+
 #include "macros.h"
 
 unsigned long _no_asserts = 0;
@@ -15,5 +17,8 @@ void dummy_test() {
 
 int main() {
     test_case(dummy_test);
+
+    game_test();
+
     return 0;
 }
