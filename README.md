@@ -18,6 +18,7 @@ Please refer to the [changelog.md](changelog.md) file for the full history.
     <summary> v0.0.1 : well... seems like I already did it (click here to expand) </summary>
 
 *   port from previous repo in python
+*   better v classes so the computer can plan against the player
 
 </details>
 
