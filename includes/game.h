@@ -1,14 +1,9 @@
 #pragma once
 
+#include "board.h"
 #include "human.h"
 #include "piece.h"
 #include "player.h"
-
-#include <iostream>
-#include <string>
-
-static const std::string &fen_start =
-    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
 class Game {
   public:
@@ -23,7 +18,7 @@ class Game {
     void play();
 
   private:
-    int board[8][8];
+    Board board;
     Player *player1; // white
     Player *player2; // black
 };
