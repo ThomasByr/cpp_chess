@@ -9,7 +9,7 @@ Make the README file <details> section.
 
 import sys
 
-if (sys.version_info.major != 3) or (sys.version_info.minor < 9):
+if (sys.version_info.major < 3) or (sys.version_info.minor < 9):
     raise ValueError("Error [README make] : python version must be >=3.9")
 
 
