@@ -3,7 +3,7 @@
 Make the README file <details> section.
 
     Usage:
-        `python 3.9 scripts/python ./readme.py`
+        `python3.9 ./scripts/details.py`
 
 """
 
