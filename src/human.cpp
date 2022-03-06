@@ -4,4 +4,6 @@
 
 Human::Human() {}
 
-void Human::play() { std::cout << score << std::endl; }
+Human::~Human() {}
+
+void Human::play() {}
