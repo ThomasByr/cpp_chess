@@ -3,10 +3,11 @@
 class Player {
   public:
     Player();
-    ~Player();
+    virtual ~Player();
 
-    void play();
+    virtual void play() = 0;
 
   protected:
     int score;
+    int check_count;
 };
