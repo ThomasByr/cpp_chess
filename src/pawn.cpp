@@ -10,8 +10,40 @@ std::string Pawn::to_string() const {
 
 std::string Pawn::to_fen() const { return color == Piece::White ? "P" : "p"; }
 
-std::vector<Move> Pawn::get_moves() const {
-    std::vector<Move> moves = std::vector<Move>();
+std::vector<int> Pawn::get_targets(int board[64]) const {
+    std::vector<int> targets;
 
-    return moves;
+    int pos = this->pos;
+    int color = this->color;
+    int file = FILE(pos), rank = RANK(pos);
+
+    if (rank != (color == Piece::White ? 0 : 7)) {
+        targets.push_back(pos + (color == Piece::White ? +8 : -8));
+    }
+    if (rank == (color == Piece::White ? 2 : 7)) {
+        targets.push_back(pos + (color == Piece::White ? +16 : -16));
+    }
+
+    if (rank == (color == Piece::White ? 1 : 6)) {
+        int other_color = color == Piece::White ? Piece::Black : Piece::White;
+        for (int i : {-1, +1}) {
+            if (file != (i == -1 ? 0 : 7) &&
+                board[pos + i] == (other_color | Piece::Pawn)) {
+                targets.push_back(pos + (color == Piece::White ? 8 : -8) + i);
+            }
+        }
+    }
+
+    if (rank != (color == Piece::White ? 0 : 7)) {
+        int other_color = color == Piece::White ? Piece::Black : Piece::White;
+        for (int i : {-1, +1}) {
+            int t = pos + (color == Piece::White ? 8 : -8) + i;
+            if (file != (i == -1 ? 0 : 7) &&
+                (board[t] & Piece::color_mask) == other_color) {
+                targets.push_back(t);
+            }
+        }
+    }
+
+    return targets;
 }

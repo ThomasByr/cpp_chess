@@ -10,7 +10,7 @@ class Pawn : public Piece {
     std::string to_string() const;
     std::string to_fen() const;
 
-    std::vector<Move> get_moves() const;
+    std::vector<int> get_targets(int board[64]) const;
 
   private:
 };

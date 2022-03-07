@@ -10,8 +10,9 @@ std::string Knight::to_string() const {
 
 std::string Knight::to_fen() const { return color == Piece::White ? "N" : "n"; }
 
-std::vector<Move> Knight::get_moves() const {
-    std::vector<Move> moves = std::vector<Move>();
+std::vector<int> Knight::get_targets(int board[64]) const {
+    std::vector<int> targets;
+    (void)board;
 
-    return moves;
+    return targets;
 }

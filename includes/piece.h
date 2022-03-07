@@ -29,7 +29,7 @@ class Piece {
     virtual std::string to_string() const = 0;
     virtual std::string to_fen() const = 0;
 
-    virtual std::vector<Move> get_moves() const = 0;
+    virtual std::vector<int> get_targets(int board[64]) const = 0;
 
   protected:
     int pos;

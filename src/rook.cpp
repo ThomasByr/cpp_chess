@@ -10,8 +10,9 @@ std::string Rook::to_string() const {
 
 std::string Rook::to_fen() const { return color == Piece::White ? "R" : "r"; }
 
-std::vector<Move> Rook::get_moves() const {
-    std::vector<Move> moves = std::vector<Move>();
+std::vector<int> Rook::get_targets(int board[64]) const {
+    std::vector<int> targets;
+    (void)board;
 
-    return moves;
+    return targets;
 }

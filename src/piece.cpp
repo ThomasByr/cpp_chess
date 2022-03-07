@@ -11,4 +11,7 @@ std::string Piece::to_string() const { return " "; }
 
 std::string Piece::to_fen() const { return " "; }
 
-std::vector<Move> Piece::get_moves() const { return std::vector<Move>(); }
+std::vector<int> Piece::get_targets(int board[64]) const {
+    (void)board;
+    return std::vector<int>();
+}
