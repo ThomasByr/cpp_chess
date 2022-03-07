@@ -7,6 +7,7 @@
 class Move {
   public:
     Move(const std::string &mv);
+    Move(int from, int to);
     ~Move();
 
     int str_to_pos(const std::string &mv) const;

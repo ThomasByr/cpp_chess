@@ -5,6 +5,11 @@ Move::Move(const std::string &mv) {
     to = str_to_pos(mv.substr(2, 2));
 }
 
+Move::Move(int from, int to) {
+    this->from = from;
+    this->to = to;
+}
+
 Move::~Move() {}
 
 int Move::str_to_pos(const std::string &str) const {
