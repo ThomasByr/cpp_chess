@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "game-test.cpp"
+#include "piece-test.cpp"
 
 #include "macros.h"
 
@@ -19,6 +20,7 @@ int main() {
     test_case(dummy_test);
 
     game_test();
+    piece_test();
 
     return 0;
 }
