@@ -20,11 +20,11 @@ PATH_TO_EXE = $(BINDIR)/$(TARGET)
 all : release
 
 debug: CFLAGS += -Og -DDEBUG -g
-debug: clean $(PATH_TO_EXE)
+debug: $(PATH_TO_EXE)
 	@echo "\033[33mRunning in debug mode!\033[0m"
 
 release: CFLAGS += -Ofast
-release: clean $(PATH_TO_EXE)
+release: $(PATH_TO_EXE)
 	@echo "\033[36mRunning in release mode!\033[0m"
 
 run:
