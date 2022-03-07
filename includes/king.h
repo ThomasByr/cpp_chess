@@ -4,6 +4,10 @@
 
 class King : public Piece {
   public:
+    King(int color, int x, int y);
+    ~King();
+
+    std::string to_string() const;
+
   private:
-    bool is_first_move;
 };

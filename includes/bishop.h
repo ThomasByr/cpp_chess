@@ -4,6 +4,10 @@
 
 class Bishop : public Piece {
   public:
+    Bishop(int color, int x, int y);
+    ~Bishop();
+
+    std::string to_string() const;
+
   private:
-    bool is_first_move;
 };
