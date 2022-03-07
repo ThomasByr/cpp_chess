@@ -26,6 +26,8 @@ class Piece {
     Piece(int color, int x, int y);
     virtual ~Piece();
 
+    bool is_inside(int pos) const;
+
     virtual std::string to_string() const = 0;
     virtual std::string to_fen() const = 0;
 

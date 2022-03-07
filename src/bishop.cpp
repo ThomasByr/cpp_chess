@@ -12,7 +12,22 @@ std::string Bishop::to_fen() const { return color == Piece::White ? "B" : "b"; }
 
 std::vector<int> Bishop::get_targets(int board[64]) const {
     std::vector<int> targets;
-    (void)board;
+
+    int pos = this->pos;
+    int color = this->color;
+
+    for (int t : {-9, -7, +7, +9}) {
+        int i = pos + t;
+        while (is_inside(i) && ((board[i] == Piece::None) ||
+                                (board[i] & Piece::color_mask) != color)) {
+            targets.push_back(i);
+            i += t;
+
+            if (board[i] != Piece::None) {
+                break;
+            }
+        }
+    }
 
     return targets;
 }

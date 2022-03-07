@@ -12,7 +12,22 @@ std::string Rook::to_fen() const { return color == Piece::White ? "R" : "r"; }
 
 std::vector<int> Rook::get_targets(int board[64]) const {
     std::vector<int> targets;
-    (void)board;
+
+    int pos = this->pos;
+    int color = this->color;
+
+    for (int t : {-8, -1, +1, +8}) {
+        int i = pos + t;
+        while (is_inside(i) && ((board[i] == Piece::None) ||
+                                (board[i] & Piece::color_mask) != color)) {
+            targets.push_back(i);
+            i += t;
+
+            if (board[i] != Piece::None) {
+                break;
+            }
+        }
+    }
 
     return targets;
 }

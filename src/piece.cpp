@@ -15,3 +15,8 @@ std::vector<int> Piece::get_targets(int board[64]) const {
     (void)board;
     return std::vector<int>();
 }
+
+bool Piece::is_inside(int pos) const {
+    int file = FILE(pos), rank = RANK(pos);
+    return file >= 0 && file < 8 && rank >= 0 && rank < 8;
+}
