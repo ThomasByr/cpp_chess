@@ -2,7 +2,6 @@
 
 #include <string>
 
-#include "piece.h"
 #include "protocol.h"
 
 class Move {

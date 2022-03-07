@@ -8,6 +8,9 @@ class Knight : public Piece {
     ~Knight();
 
     std::string to_string() const;
+    std::string to_fen() const;
+
+    std::vector<Move> get_moves() const;
 
   private:
 };

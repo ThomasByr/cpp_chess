@@ -2,7 +2,9 @@
 
 #include <string>
 #include <unordered_set>
+#include <vector>
 
+#include "move.h"
 #include "protocol.h"
 
 class Piece {
@@ -25,6 +27,9 @@ class Piece {
     virtual ~Piece();
 
     virtual std::string to_string() const = 0;
+    virtual std::string to_fen() const = 0;
+
+    virtual std::vector<Move> get_moves() const = 0;
 
   protected:
     int pos;

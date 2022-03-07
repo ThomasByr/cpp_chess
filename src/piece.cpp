@@ -8,3 +8,7 @@ Piece::Piece(int color, int x, int y) {
 Piece::~Piece() {}
 
 std::string Piece::to_string() const { return " "; }
+
+std::string Piece::to_fen() const { return " "; }
+
+std::vector<Move> Piece::get_moves() const { return std::vector<Move>(); }
