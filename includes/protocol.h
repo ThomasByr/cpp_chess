@@ -1,5 +1,5 @@
 #pragma once
 
-#define IX(i, j) ((i) + (j)*8)
-#define FILE(i) ((i)&7)
-#define RANK(i) ((i) >> 3)
+#define IX(file, rank) ((file) + (rank) * int(8))
+#define FILE(ix) ((ix) % int(8))
+#define RANK(ix) ((ix) / int(8))
