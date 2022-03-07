@@ -15,10 +15,12 @@ class Game {
 
     int piece_at(int file, int rank) const;
 
+    void show();
+
     void play();
 
   private:
-    Board board;
+    Board *board;
     Player *player1; // white
     Player *player2; // black
 };
