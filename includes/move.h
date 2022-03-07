@@ -1,5 +1,18 @@
 #pragma once
 
-#include "piece.h"
+#include <string>
 
-class Move {};
+#include "piece.h"
+#include "protocol.h"
+
+class Move {
+  public:
+    Move(const std::string &mv);
+    ~Move();
+
+    int str_to_pos(const std::string &mv) const;
+
+  private:
+    int from;
+    int to;
+};
