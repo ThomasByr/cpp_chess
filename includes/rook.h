@@ -4,7 +4,7 @@
 
 class Rook : public Piece {
   public:
-    Rook(int color, int x, int y);
+    Rook(int color, int file, int rank);
     ~Rook();
 
     std::string to_string() const;

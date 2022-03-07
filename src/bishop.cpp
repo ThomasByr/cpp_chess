@@ -1,6 +1,6 @@
 #include "bishop.h"
 
-Bishop::Bishop(int color, int x, int y) : Piece(color, x, y) {}
+Bishop::Bishop(int color, int file, int rank) : Piece(color, file, rank) {}
 
 Bishop::~Bishop() {}
 
@@ -21,11 +21,11 @@ std::vector<int> Bishop::get_targets(int board[64]) const {
         while (is_inside(i) && ((board[i] == Piece::None) ||
                                 (board[i] & Piece::color_mask) != color)) {
             targets.push_back(i);
-            i += t;
 
             if (board[i] != Piece::None) {
                 break;
             }
+            i += t;
         }
     }
 

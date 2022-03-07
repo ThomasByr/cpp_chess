@@ -4,7 +4,7 @@
 
 class Queen : public Piece {
   public:
-    Queen(int color, int x, int y);
+    Queen(int color, int file, int rank);
     ~Queen();
 
     std::string to_string() const;

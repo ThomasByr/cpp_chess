@@ -1,6 +1,6 @@
 #include "king.h"
 
-King::King(int color, int x, int y) : Piece(color, x, y) {}
+King::King(int color, int file, int rank) : Piece(color, file, rank) {}
 
 King::~King() {}
 

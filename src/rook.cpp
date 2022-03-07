@@ -1,6 +1,6 @@
 #include "rook.h"
 
-Rook::Rook(int color, int x, int y) : Piece(color, x, y) {}
+Rook::Rook(int color, int file, int rank) : Piece(color, file, rank) {}
 
 Rook::~Rook() {}
 
@@ -21,11 +21,11 @@ std::vector<int> Rook::get_targets(int board[64]) const {
         while (is_inside(i) && ((board[i] == Piece::None) ||
                                 (board[i] & Piece::color_mask) != color)) {
             targets.push_back(i);
-            i += t;
 
             if (board[i] != Piece::None) {
                 break;
             }
+            i += t;
         }
     }
 

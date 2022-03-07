@@ -4,7 +4,7 @@
 
 class Pawn : public Piece {
   public:
-    Pawn(int color, int x, int y);
+    Pawn(int color, int file, int rank);
     ~Pawn();
 
     std::string to_string() const;

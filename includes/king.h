@@ -4,7 +4,7 @@
 
 class King : public Piece {
   public:
-    King(int color, int x, int y);
+    King(int color, int file, int rank);
     ~King();
 
     std::string to_string() const;

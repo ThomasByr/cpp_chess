@@ -4,7 +4,7 @@
 
 class Knight : public Piece {
   public:
-    Knight(int color, int x, int y);
+    Knight(int color, int file, int rank);
     ~Knight();
 
     std::string to_string() const;

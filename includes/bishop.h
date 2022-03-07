@@ -4,7 +4,7 @@
 
 class Bishop : public Piece {
   public:
-    Bishop(int color, int x, int y);
+    Bishop(int color, int file, int rank);
     ~Bishop();
 
     std::string to_string() const;
