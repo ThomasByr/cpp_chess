@@ -1,6 +1,9 @@
 #pragma once
 
+#include <string>
 #include <unordered_set>
+
+#include "protocol.h"
 
 class Piece {
   public:
@@ -18,7 +21,13 @@ class Piece {
     inline static const int type_mask = 7;
     inline static const int color_mask = 24;
 
+    Piece(int color, int x, int y);
+    virtual ~Piece();
+
+    virtual std::string to_string() const = 0;
+
   protected:
     int pos;
+    int color;
     std::unordered_set<int> controlled_squares;
 };
