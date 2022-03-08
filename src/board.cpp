@@ -116,6 +116,13 @@ void Board::unmake_move(const Move &move) {
     return;
 }
 
+void Board::set_moves() {
+    for (auto const &piece : pieces) {
+        std::vector<int> targets;
+        targets = piece.second->get_targets(this->board);
+    }
+}
+
 void Board::show() {
     std::cout << "   ";
     for (int file = 0; file < 8; file++) {

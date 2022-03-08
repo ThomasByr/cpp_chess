@@ -25,6 +25,8 @@ class Board {
     void make_move(const Move &move);
     void unmake_move(const Move &move);
 
+    void set_moves();
+
     void clear_board();
     void load_from_fen(const std::string &fen);
     void make_pieces();
