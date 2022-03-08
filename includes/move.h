@@ -10,7 +10,7 @@ class Move {
     Move(int from, int to);
     ~Move();
 
-    int str_to_pos(const std::string &mv) const;
+    static int str_to_pos(const std::string &mv);
 
   private:
     int from;

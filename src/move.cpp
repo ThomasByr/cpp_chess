@@ -12,7 +12,7 @@ Move::Move(int from, int to) {
 
 Move::~Move() {}
 
-int Move::str_to_pos(const std::string &str) const {
+int Move::str_to_pos(const std::string &str) {
     int rank, file;
     rank = str[1] - '1';
     file = str[0] - 'a';
