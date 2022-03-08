@@ -1,7 +1,7 @@
 CC = g++-11
 
-CFLAGS ?= -march=znver3 -pipe -std=c++20 -pedantic -Wall -Wextra -Werror
-LDLIBS ?=
+CFLAGS = -march=znver3 -pipe -std=c++20 -pedantic -Wall -Wextra -Werror
+LDLIBS =
 
 INCLUDE_PATH = ./includes
 
