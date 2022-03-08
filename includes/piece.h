@@ -21,8 +21,10 @@ class Piece {
     inline static const int White = 8;
     inline static const int Black = 16;
 
-    inline static const int type_mask = 7;
-    inline static const int color_mask = 24;
+    inline static const int type_mask = 0b00111;
+    inline static const int black_mask = 0b10000;
+    inline static const int white_mask = 0b01000;
+    inline static const int color_mask = black_mask | white_mask;
 
     Piece(int color, int file, int rank);
     virtual ~Piece();

@@ -18,10 +18,16 @@ std::vector<int> Pawn::get_targets(int board[64]) const {
     int file = FILE(pos), rank = RANK(pos);
 
     if (rank != (color == Piece::White ? 0 : 7)) {
-        targets.push_back(pos + (color == Piece::White ? +8 : -8));
+        int t = pos + (color == Piece::White ? +8 : -8);
+        if (board[t] == Piece::None) {
+            targets.push_back(t);
+        }
     }
     if (rank == (color == Piece::White ? 2 : 7)) {
-        targets.push_back(pos + (color == Piece::White ? +16 : -16));
+        int t = pos + (color == Piece::White ? +16 : -16);
+        if (board[t] == Piece::None) {
+            targets.push_back(t);
+        }
     }
 
     if (rank == (color == Piece::White ? 1 : 6)) {

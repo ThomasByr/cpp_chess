@@ -18,6 +18,10 @@ std::vector<int> King::get_targets(int board[64]) const {
 
     for (int t : {-9, -8, -7, -1, +1, +7, +8, +9}) {
         int i = pos + t;
+        if (!is_valid(pos, t)) {
+            continue;
+        }
+
         if (is_inside(i) && ((board[i] == Piece::None) ||
                              (board[i] & Piece::color_mask) != color)) {
             targets.push_back(i);
