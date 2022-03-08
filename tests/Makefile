@@ -1,8 +1,8 @@
 CC = g++-11
 TARGET = tests
 
-CFLAGS ?= -march=native -Og -pipe -std=c++20 -pedantic -Wall -Wextra -Werror -DDEBUG -g
-LDLIBS ?=
+CFLAGS = -march=native -Og -pipe -std=c++20 -pedantic -Wall -Wextra -Werror -DDEBUG -g
+LDLIBS =
 
 INCLUDE_PATH = ../includes
 
