@@ -104,6 +104,18 @@ void Board::load_from_fen(const std::string &fen) {
     make_pieces();
 }
 
+void Board::make_move(const Move &move) {
+    (void)move;
+
+    return;
+}
+
+void Board::unmake_move(const Move &move) {
+    (void)move;
+
+    return;
+}
+
 void Board::show() {
     std::cout << "   ";
     for (int file = 0; file < 8; file++) {
